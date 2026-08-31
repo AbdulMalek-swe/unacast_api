@@ -1,1 +1,57 @@
-sdfds
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unacast API Documentation</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+            line-height: 1.6;
+        }
+
+        pre {
+            background: #f6f8fa;
+            padding: 15px;
+            overflow-x: auto;
+            border-radius: 6px;
+        }
+
+        code {
+            font-family: monospace;
+        }
+
+        img {
+            max-width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="content">
+    Loading documentation...
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<script>
+fetch('README.md')
+    .then(response => response.text())
+    .then(markdown => {
+        document.getElementById('content').innerHTML =
+            marked.parse(markdown);
+    })
+    .catch(error => {
+        document.getElementById('content').innerHTML =
+            '<h2>Failed to load README.md</h2>';
+        console.error(error);
+    });
+</script>
+
+</body>
+</html>
